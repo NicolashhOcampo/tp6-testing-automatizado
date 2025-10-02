@@ -31,7 +31,7 @@ describe('Contact List App - Contact Management', () => {
     })
 
     beforeEach(() => {
-        cy.visit('/')
+        cy.visit('/login')
         cy.get('#email').type(testUser.email)
         cy.get('#password').type(testUser.password)
         cy.get('#submit').click()
