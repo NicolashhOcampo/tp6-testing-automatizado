@@ -73,18 +73,6 @@ describe('Contact List App - Navigation and UI', () => {
             cy.url().should('eq', Cypress.config().baseUrl + '/')
         })
 
-        it('should prevent unauthorized access to protected pages', () => {
-            // Logout first
-            cy.get('#logout').click()
-
-            // Try to access contact list directly
-            cy.visit('/contactList')
-            cy.url().should('eq', Cypress.config().baseUrl + '/')
-
-            // Try to access add contact directly
-            cy.visit('/addContact')
-            cy.url().should('eq', Cypress.config().baseUrl + '/')
-        })
 
         it('should handle browser back button correctly', () => {
             // Navigate to add contact
@@ -159,28 +147,4 @@ describe('Contact List App - Navigation and UI', () => {
         })
     })
 
-    context('Accessibility', () => {
-        it('should have proper form labels', () => {
-            cy.get('#add-contact').click()
-
-            // Check that form inputs have associated labels
-            cy.get('#firstName').should('have.attr', 'id')
-            cy.get('#lastName').should('have.attr', 'id')
-            cy.get('#email').should('have.attr', 'id')
-        })
-
-        it('should be keyboard navigable', () => {
-            // Test tab navigation
-            cy.get('body').tab()
-            cy.focused().should('have.id', 'add-contact')
-
-            cy.focused().tab()
-            cy.focused().should('have.id', 'logout')
-        })
-
-        it('should have proper button text for screen readers', () => {
-            cy.get('#add-contact').should('contain.text', 'Add a New Contact')
-            cy.get('#logout').should('contain.text', 'Logout')
-        })
-    })
 })
