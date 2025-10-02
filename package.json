@@ -1,0 +1,22 @@
+{
+    "name": "tp6-testing-automatizado",
+    "version": "1.0.0",
+    "description": "Proyecto de testing automatizado con Cypress para Contact List App",
+    "main": "index.js",
+    "scripts": {
+        "cy:open": "cypress open",
+        "cy:run": "cypress run",
+        "test": "cypress run",
+        "test:headed": "cypress run --headed"
+    },
+    "keywords": [
+        "cypress",
+        "testing",
+        "automation"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cypress": "^13.6.0"
+    }
+}
